@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Preview — perfil RojasAuditto</title>
+<style>
+  :root { color-scheme: dark light; }
+  body {
+    margin: 0; background: #0d1117; color: #e6edf3;
+    font: 16px/1.6 -apple-system, "Segoe UI", Noto Sans, Helvetica, Arial, sans-serif;
+    padding: 32px 16px 80px;
+  }
+  .switch {
+    max-width: 900px; margin: 0 auto 20px; display: flex; gap: 8px; align-items: center;
+    font-size: 13px; color: #8b949e;
+  }
+  button {
+    font: inherit; font-size: 13px; padding: 5px 12px; cursor: pointer;
+    background: #21262d; color: #e6edf3; border: 1px solid #30363d; border-radius: 6px;
+  }
+  button[aria-pressed="true"] { background: #7C5CFF; border-color: #7C5CFF; color: #fff; }
+  .card {
+    max-width: 900px; margin: 0 auto; background: #0d1117;
+    border: 1px solid #30363d; border-radius: 6px; padding: 32px;
+  }
+  .card img { max-width: 100%; vertical-align: middle; }
+  .badges { margin: 4px 0 10px; display: flex; flex-wrap: wrap; gap: 4px; }
+  p { margin: 16px 0; }
+  .links { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 6px; }
+  body.light { background: #ffffff; color: #1f2328; }
+  body.light .card { background: #fff; border-color: #d1d9e0; }
+  .hint { max-width: 900px; margin: 24px auto 0; font-size: 13px; color: #8b949e; }
+</style>
+</head>
+<body>
+
+<div class="switch">
+  <span>Tema do GitHub:</span>
+  <button id="dark" aria-pressed="true">Escuro</button>
+  <button id="light" aria-pressed="false">Claro</button>
+  <button id="reload">Reiniciar animações</button>
+</div>
+
+<div class="card">
+  <img id="hero" src="./assets/hero.svg" alt="Fabrício Rojas — full stack developer" width="100%" />
+
+  <p>Construo produtos web do banco ao pixel: arquitetura de API, plataformas SaaS e interfaces que
+  não parecem template. Baseado em São Paulo, trabalhando com Next.js, Node e TypeScript.</p>
+
+  <div class="badges">
+    <img src="https://img.shields.io/badge/Next.js-C3B0FF?style=flat-square&logo=nextdotjs&logoColor=0B0713" alt="Next.js" />
+    <img src="https://img.shields.io/badge/React-8FE9FF?style=flat-square&logo=react&logoColor=0B0713" alt="React" />
+    <img src="https://img.shields.io/badge/TypeScript-A9B8FF?style=flat-square&logo=typescript&logoColor=0B0713" alt="TypeScript" />
+    <img src="https://img.shields.io/badge/Node.js-9DF4B8?style=flat-square&logo=nodedotjs&logoColor=0B0713" alt="Node.js" />
+    <img src="https://img.shields.io/badge/Tailwind-A5F3E0?style=flat-square&logo=tailwindcss&logoColor=0B0713" alt="Tailwind" />
+    <img src="https://img.shields.io/badge/Framer_Motion-FF9EC4?style=flat-square&logo=framer&logoColor=0B0713" alt="Framer Motion" />
+  </div>
+  <div class="badges">
+    <img src="https://img.shields.io/badge/PostgreSQL-FFC48A?style=flat-square&logo=postgresql&logoColor=0B0713" alt="PostgreSQL" />
+    <img src="https://img.shields.io/badge/Prisma-B5FB94?style=flat-square&logo=prisma&logoColor=0B0713" alt="Prisma" />
+    <img src="https://img.shields.io/badge/GraphQL-FFB3D1?style=flat-square&logo=graphql&logoColor=0B0713" alt="GraphQL" />
+    <img src="https://img.shields.io/badge/Docker-A8D8FF?style=flat-square&logo=docker&logoColor=0B0713" alt="Docker" />
+    <img src="https://img.shields.io/badge/Figma-D8C7FF?style=flat-square&logo=figma&logoColor=0B0713" alt="Figma" />
+    <img src="https://img.shields.io/badge/Vercel-ECECEC?style=flat-square&logo=vercel&logoColor=0B0713" alt="Vercel" />
+  </div>
+
+  <p></p>
+  <img id="commits" src="./assets/commits.svg" alt="Commits reais das últimas 26 semanas" width="100%" />
+
+  <div class="links">
+    <img src="https://img.shields.io/badge/rojascode.com-7C5CFF?style=flat-square&logo=safari&logoColor=F2ECFF" alt="Portfólio" />
+    <img src="https://img.shields.io/badge/LinkedIn-C3B0FF?style=flat-square&logo=linkedin&logoColor=0B0713" alt="LinkedIn" />
+    <img src="https://img.shields.io/badge/Conversar-9DF4B8?style=flat-square&logo=whatsapp&logoColor=0B0713" alt="WhatsApp" />
+  </div>
+</div>
+
+<p class="hint">Este arquivo é só para conferir o resultado antes de publicar. Não precisa subir no repositório.</p>
+
+<script>
+  const body = document.body;
+  const dark = document.getElementById('dark');
+  const light = document.getElementById('light');
+  function setTheme(isLight) {
+    body.classList.toggle('light', isLight);
+    dark.setAttribute('aria-pressed', String(!isLight));
+    light.setAttribute('aria-pressed', String(isLight));
+  }
+  dark.onclick = () => setTheme(false);
+  light.onclick = () => setTheme(true);
+  document.getElementById('reload').onclick = () => {
+    for (const id of ['hero', 'commits']) {
+      const el = document.getElementById(id);
+      const base = el.src.split('?')[0];
+      el.src = base + '?t=' + Date.now();
+    }
+  };
+</script>
+</body>
+</html>
