@@ -2,7 +2,7 @@
 
 ## 1. Criar o repositório
 
-Crie um repo **público** chamado exatamente `RojasAuditto` (igual ao seu usuário).
+Crie um repo **público** chamado exatamente `Fafarojas` (igual ao seu usuário).
 Não marque "Add a README" — os arquivos já vêm prontos aqui.
 
 ## 2. Subir os arquivos
@@ -12,7 +12,7 @@ git init
 git add .
 git commit -m "feat: perfil pixel"
 git branch -M main
-git remote add origin https://github.com/RojasAuditto/RojasAuditto.git
+git remote add origin https://github.com/Fafarojas/Fafarojas.git
 git push -u origin main
 ```
 
@@ -39,7 +39,7 @@ Em **Settings → Actions → General → Workflow permissions**, marque
 
 Depois vá em **Actions → pixel stats → Run workflow** para rodar a primeira vez.
 Não precisa de token nem secret: o script lê o endpoint público
-`github.com/users/RojasAuditto/contributions`.
+`github.com/users/Fafarojas/contributions`.
 
 ## 4. Regenerar localmente (opcional)
 

@@ -13,7 +13,7 @@ import urllib.request
 sys.path.insert(0, os.path.dirname(__file__))
 from pixelfont import text_rects, text_width
 
-USER = os.environ.get("GH_USER", "RojasAuditto")
+USER = os.environ.get("GH_USER", "Fafarojas")
 
 VOID = "#0B0713"
 GRID = "#241C38"
